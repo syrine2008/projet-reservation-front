@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { AcceuilComponent } from './components/acceuil/acceuil.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AcceuilComponent
   ],
   imports: [
     BrowserModule,
