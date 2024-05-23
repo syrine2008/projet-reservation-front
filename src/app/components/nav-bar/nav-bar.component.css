@@ -1,0 +1,37 @@
+.navbar-custom {
+    /* background: linear-gradient(to right ,#B7D9F4 ,  #ffffff); */
+    background: linear-gradient(to right ,#eda42fba ,  #c1def59f);
+    backdrop-filter: blur(10px);
+  }
+
+  .logo-container {
+   
+    color: white;
+
+}
+
+.logo-text {
+    font-size: 24px;
+
+    text-transform: uppercase;
+    font-family: Brush Script MT, Brush Script Std, cursive;
+}
+.logo img {
+  max-width: 70px; /* Définir la largeur maximale du logo */
+  height: auto; /* Garder le ratio hauteur/largeur */
+  border-radius: 100%;
+}
+.nav-link-connexion{
+  background-color: #EDA52F;
+  border-radius: 10px;
+  margin-right: 20px;
+
+}
+
+.userName{
+  margin-right: 30px;
+  font-size: 24px;
+
+  text-transform: uppercase;
+  font-family: cursive;
+}

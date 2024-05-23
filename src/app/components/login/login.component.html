@@ -1,0 +1,28 @@
+
+<div  class="container-fluid">
+ 
+    <form [formGroup]="myForm" >
+
+     
+        <div class="row">
+            <mat-form-field>
+                <input matInput formControlName="login" placeholder="Login">
+                <mat-error *ngIf="myForm.get('login')?.hasError('required')">Login est requis</mat-error>
+            </mat-form-field>
+        
+        </div>
+         <div class="row">
+            <mat-form-field>
+                <input matInput formControlName="mdp" placeholder="Mot de passe" type="password">
+                <mat-error *ngIf="myForm.get('mdp')?.hasError('required')">Mot de passe est requis</mat-error>
+            </mat-form-field>
+        </div>
+         <div class="row">
+            <button mat-raised-button color="primary" (click)="onSubmit()">Soumettre</button>
+        </div> 
+        <br>
+        <div class="row">
+            <button mat-button color="primary" (click)="open()">s'inscrire</button>
+        </div> 
+    </form>
+</div>

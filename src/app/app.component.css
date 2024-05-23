@@ -1,0 +1,23 @@
+
+
+
+.myclass{
+    /* background-image: url('../assets/img/defaul.jpg');
+    background-repeat: no-repeat;
+    background-position: center; */
+   /* background-size: cover;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    margin-top: 15px;
+    min-height: 100vh;
+    border-radius: 10px;
+    
+}
+
+.container-blur {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.311);
+}

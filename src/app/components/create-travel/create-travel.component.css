@@ -1,0 +1,24 @@
+.container {
+    margin: 50px;
+    min-height: 100vh;
+    border-radius: 10px;
+    
+}
+
+.container-blur {
+   
+    background: linear-gradient(to right ,#eda42fba ,  #c1def59f);
+    backdrop-filter: blur(10px);
+    /*background-color: #BDDCF5;*/
+}
+.myform{
+    margin: 15px;
+}
+.btnNouvOffre{
+    
+    background-color: #EDA52F;
+    border-radius: 10px;
+    border-color: #EDA52F;
+
+  
+  }

@@ -1,0 +1,74 @@
+.card-container {
+    overflow: hidden;
+      margin-top: 15px;
+      display: flex;
+      /* Utiliser Flexbox */
+      flex-wrap: wrap;
+      /* Permettre le passage à la ligne des éléments */
+      gap: 20px;
+      /* Espace entre les éléments */
+      justify-content: center;
+      /* Centrer horizontalement les éléments */
+      align-items: center;
+      /* Centrer verticalement les éléments */
+  
+  }
+  
+  .app-travels {
+      flex: 0 0 calc(33.33% - 20px);
+      /* Répartir les éléments sur 3 colonnes avec un espacement de 20px */
+      max-width: calc(33.33% - 20px);
+      /* Largeur maximale de chaque élément */
+  }
+  .myform {
+      min-width: 150px;
+      max-width: 500px;
+      width: 100%;
+    }
+    
+    .example-full-width {
+      width: 100%;
+    }
+    mat-button-toggle-group {
+      margin-left: 12px;
+      border-radius: 20px;
+      
+    }
+    .star-yellow {
+      color: #EDA52F;
+    }
+    .borderYellow{
+   
+      border-right: 0ch;
+       border-radius: 15px;
+    }
+  
+    .recherche{
+      background: linear-gradient(to right ,#F1BD68 ,  #ffffff);
+      /* background: linear-gradient(to right,  #ffffff ,#B7D9F4); */
+      /* background-color: #8d9de6a5; */
+      /* backdrop-filter: blur(10px);
+      background-color: rgba(171, 220, 235, 0.455);
+      border-radius: 15px; */
+  
+      /* backdrop-filter: blur(10px);
+      background-color: rgba(119, 178, 227, 0.514);
+      border-radius: 15px; */
+     /* background-image: url('../../../assets/img/defaul.jpg'); */
+      /* background-repeat: no-repeat;
+      background-position: center;
+      padding: 50px;
+      background-size: contain;  */
+     /* background-size: cover;*/
+      /* display: flex;
+      justify-content: center;
+      align-items: center; */
+    }
+    .underline-button {
+      text-decoration: underline;
+      color: inherit; /* Ensures the button keeps the default color */
+      background: none; /* Removes any background */
+      border: none; /* Removes any border */
+      cursor: pointer; /* Changes cursor to pointer to indicate it's clickable */
+      padding: 0; /* Removes any padding */
+    }

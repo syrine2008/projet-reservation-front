@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="row">
+        <mat-list role="list">
+            <mat-list-item role="listitem" style="margin: 15px;height:auto; box-shadow: 0 15px 15px #EAC587;"
+                *ngFor="let item of listDesReservations ">
+                <div class="row" style="margin: 20px;">
+                    <div class="col-2">
+                        <img class="card-image" [src]="item.travel.urlImage" alt="Photo of a Shiba Inu"
+                            style="width: 200px;height: 150px; ">
+                    </div>
+                    <div class="col-7" style="margin-left: 40px ;">
+                        <h2> {{item.travel.name}} </h2> ( {{item.travel.type}} )
+                        <p>
+                            {{item.travel.description}}
+                        </p>
+                        <p>
+                            {{item.travel.price}} €
+                        </p>
+                    </div>
+                    <div class="col-2 d-flex justify-content-center align-items-center" style=" margin-left: 30px ;">
+                        <p *ngIf="item.travel.type == 'Hébergement'|| item.travel.type =='Activité'">
+                            <span style="color: #E6A02E;"> DU :</span>    {{item.dateDebut | date:'dd/MM/yyyy'}} <br>
+                            <span style="color: #E6A02E;">   AU : </span>  {{item.dateFin | date:'dd/MM/yyyy'}}
+                        </p>
+                        <p *ngIf="item.travel.type == 'Vols'">
+                         <span style="color: #E6A02E;"> Aller : </span>  {{item.dateDebut | date:'dd/MM/yyyy'}} <br>
+                          <span style="color: #E6A02E;">  Retour :</span>  {{item.dateFin | date:'dd/MM/yyyy'}}
+                        </p>
+                        <!-- type
+                        : 
+                        "Hébergement" -->
+
+                    </div>
+                </div>
+            </mat-list-item>
+        </mat-list>
+    </div>
+
+</div>

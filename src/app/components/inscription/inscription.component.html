@@ -1,0 +1,50 @@
+<div  class="container-fluid">
+ <h1> veuillez vous inscrire </h1>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+        <div class="row">
+            <mat-form-field>
+                <input matInput formControlName="name" placeholder="Nom">
+                <mat-error *ngIf="myForm.get('name')?.hasError('required')">Nom est requis</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field>
+                <mat-label>Type</mat-label>
+                <mat-select formControlName="type" placeholder="Type">
+                    <mat-option [value]="type"  *ngFor="let type of typeUserOptions"> {{type}} </mat-option>
+                </mat-select>
+                <mat-error *ngIf="myForm.get('type')?.hasError('required')">Type est requis</mat-error>
+            </mat-form-field>
+        </div>
+         <div class="row">
+            <mat-form-field>
+                <input matInput formControlName="email" placeholder="Email" type="email">
+                <mat-error *ngIf="myForm.get('email')?.hasError('required')">Email est requis</mat-error>
+                <mat-error *ngIf="myForm.get('email')?.hasError('email')">Email invalide</mat-error>
+            </mat-form-field>
+        </div>
+         <div class="row">
+            <mat-form-field>
+                <input matInput formControlName="tel" placeholder="Téléphone">
+                <mat-error *ngIf="myForm.get('tel')?.hasError('required')">Téléphone est requis</mat-error>
+            </mat-form-field>
+        </div> 
+        <div class="row">
+            <mat-form-field>
+                <input matInput formControlName="login" placeholder="Login">
+                <mat-error *ngIf="myForm.get('login')?.hasError('required')">Login est requis</mat-error>
+            </mat-form-field>
+        
+        </div>
+         <div class="row">
+            <mat-form-field>
+                <input matInput formControlName="mdp" placeholder="Mot de passe" type="password">
+                <mat-error *ngIf="myForm.get('mdp')?.hasError('required')">Mot de passe est requis</mat-error>
+            </mat-form-field>
+        </div>
+         <div class="row">
+            <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Soumettre</button>
+        </div> 
+    </form>
+</div>

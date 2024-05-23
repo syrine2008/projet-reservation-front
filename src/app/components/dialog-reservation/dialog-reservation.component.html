@@ -1,0 +1,33 @@
+
+<div  class="container-fluid">
+ 
+    <form [formGroup]="myForm" >
+
+     
+        <div class="row">
+
+                <mat-form-field class="full-width">
+                    <mat-label>date Debut</mat-label>
+                    <input matInput [matDatepicker]="startDatePicker" id="dateDebut" formControlName="dateDebut">
+                    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startDatePicker></mat-datepicker>
+                </mat-form-field>
+        
+        </div>
+         <div class="row">
+            <mat-form-field class="full-width">
+                        <mat-label>date Debut</mat-label>
+                        <input matInput [matDatepicker]="endDatePicker" id="dateFin" formControlName="dateFin">
+                        <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                        <mat-datepicker #endDatePicker></mat-datepicker>
+                    </mat-form-field>
+        </div>
+         <div class="row">
+            <button mat-raised-button color="primary" (click)="onSubmit()"> Reserver </button>
+        </div> 
+        <br>
+        <div class="row">
+            <button mat-raised-button color="warn" (click)="close()">annuler</button>
+        </div> 
+    </form>
+</div>
