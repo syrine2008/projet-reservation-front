@@ -1,5 +1,5 @@
 import { environment } from './../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {Travel} from '../Model/Travel'; 
@@ -36,6 +36,13 @@ getTravelsByOwner(user : User):Observable<Travel[]>{
 
 createTravel(travel : Travel):Observable<any>{
   return this.httpclient.post<any>(environment.baseUrl+"travel/create", travel) ;
+}
+deleteReservationById(id : string):Observable<any>{
+  const params = new HttpParams()
+  .set('id', id) ; 
+
+
+return this.httpclient.get<any>(environment.baseUrl + 'travel/deleteTravel', { params });
 }
 
 }

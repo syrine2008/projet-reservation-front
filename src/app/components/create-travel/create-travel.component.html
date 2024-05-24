@@ -56,16 +56,7 @@
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <!-- 
-                    typesTravels
                     <div class="row">
-                    <mat-form-field class="full-width">
-                        <mat-label>Type</mat-label>
-                        <input matInput id="type" type="text" formControlName="type">
-                    </mat-form-field>
-                </div> -->
-
-                <div class="row">
                     <mat-form-field class="full-width">
                         <mat-label>Start Date</mat-label>
                         <input matInput [matDatepicker]="startDatePicker" id="startDate" formControlName="startDate">
@@ -107,20 +98,6 @@
                         <mat-error *ngIf="travelForm.get('disponibility')?.hasError('required')">Disponibility is required</mat-error>
                       </mat-form-field>
                 </div>
-
-                <!-- <div class="row">
-                    <mat-form-field class="full-width">
-                        <mat-label>Note</mat-label>
-                        <input matInput id="note" type="number" formControlName="note">
-                    </mat-form-field>
-                </div> -->
-
-                <!-- <div class="row">
-                    <mat-form-field class="full-width">
-                        <mat-label>Commentaire</mat-label>
-                        <textarea matInput id="commentaire" formControlName="commentaire"></textarea>
-                    </mat-form-field>
-                </div> -->
 
                 <div class="row">
                     <mat-form-field class="full-width">

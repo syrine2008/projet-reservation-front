@@ -27,6 +27,8 @@ export class NavBarComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private router: Router) {
     this.connected = UserConnexion()
+    this.nameUser = localStorage.getItem("userName");
+    this.typeUser = localStorage.getItem("typeUser");
   }
 
   ngOnInit(): void {

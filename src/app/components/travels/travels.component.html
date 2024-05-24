@@ -113,6 +113,8 @@
 
             <button mat-raised-button style="background-color: #B7D9F4 ;" (click)="goToReservation(item)"
               *ngIf="AffichageAvecFilter">Reserver</button>
+              <button mat-raised-button style="background-color: #e53e3e ;"  (click)="deleteTravel(item.id)"
+              *ngIf="!AffichageAvecFilter">Supprimer</button>
 
           </div>
         </div>

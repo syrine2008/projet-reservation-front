@@ -264,7 +264,13 @@ export class TravelsComponent implements OnInit {
     }
 
   }
-
+  //deleteReservationById
+deleteTravel(id : any){
+  this.travelService.deleteReservationById(id).subscribe(data =>{
+    window.location.reload();
+  
+  })
+}
 
   toggleComments(index: number): void {
     this.showComments[index] = !this.showComments[index];
