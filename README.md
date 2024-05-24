@@ -1,5 +1,5 @@
 
-#Résumé du projet Reservation
+Résumé du projet Reservation
 
 C'est une application web qui offre la possibilité de réserver un séjour dans un hôtel, des activités, des voles 
 
