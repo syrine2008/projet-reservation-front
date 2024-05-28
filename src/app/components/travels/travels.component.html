@@ -96,15 +96,34 @@
 
 
             <div>
-              <button mat-button class="underline-button" *ngIf="item.commentaires.length > 0" (click)="toggleComments(i)">Voir les commentaires</button>
+              <button mat-button class="underline-button" *ngIf="item.commentaires.length > 0"
+                (click)="toggleComments(i)">Voir les commentaires</button>
 
               <!-- Comment panel -->
               <div *ngIf="showComments[i] " class="comments-panel">
-               
+
                 <ul>
                   <li *ngFor="let comment of item.commentaires">{{ comment.commentaire }}</li>
                 </ul>
+                <div>
+                  <mat-form-field>
+                    <mat-label>Nouveau commentaire</mat-label>
+                    <input matInput placeholder="Ajouter un commentaire" [(ngModel)]="comments">
+                  </mat-form-field>
+
+                  <mat-form-field style="margin-left:20px ;">
+                    <mat-label>Note</mat-label>
+                    <input matInput type="number" placeholder="Note" [(ngModel)]="note" min="0" max="5">
+                  </mat-form-field>
+                  <button mat-raised-button style="background-color: #B7D9F4 ; margin-left:20px ;" (click)="addcommentaire(item,comments,note)">Ajouter</button>
+
+                </div>
+
+
               </div>
+
+
+
             </div>
 
 
@@ -113,7 +132,7 @@
 
             <button mat-raised-button style="background-color: #B7D9F4 ;" (click)="goToReservation(item)"
               *ngIf="AffichageAvecFilter">Reserver</button>
-              <button mat-raised-button style="background-color: #e53e3e ;"  (click)="deleteTravel(item.id)"
+            <button mat-raised-button style="background-color: #e53e3e ;" (click)="deleteTravel(item.id)"
               *ngIf="!AffichageAvecFilter">Supprimer</button>
 
           </div>

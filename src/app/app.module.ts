@@ -36,7 +36,7 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 import { CreateTravelComponent } from './components/create-travel/create-travel.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { DialogReservationComponent } from './components/dialog-reservation/dialog-reservation.component';
-
+import {MatSliderModule} from '@angular/material/slider';
 
 
 
@@ -77,7 +77,8 @@ import { DialogReservationComponent } from './components/dialog-reservation/dial
     MatDividerModule,
     MatDatepickerModule,
     MatDialogModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSliderModule
   ],
   providers: [
     { provide: MAT_DATE_FORMATS, useValue: MAT_NATIVE_DATE_FORMATS }, // Utilisez les formats de date natifs

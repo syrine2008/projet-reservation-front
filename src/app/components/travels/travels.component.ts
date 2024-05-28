@@ -14,6 +14,9 @@ import { Router } from '@angular/router';
 import { UserConnexion } from '../../functions/connexion';
 import { LoginComponent } from '../login/login.component';
 import { DialogReservationComponent } from '../dialog-reservation/dialog-reservation.component';
+import { CommentaireService } from 'src/app/Services/commentaire.service';
+import { Commentaire } from 'src/app/Model/Commentaire';
+import { User } from 'src/app/Model/User';
 
 
 export interface ChipColor {
@@ -53,10 +56,13 @@ export class TravelsComponent implements OnInit {
   AffichageAvecFilter: boolean = false;
   panelOpenState = false;
   showComments: boolean[] = [];
+  comments = '' ; 
+  note = 5 ; 
 
 
-
-  constructor(private travelService: TravelService, public dialog: MatDialog, private router: Router) {
+  constructor(private travelService: TravelService, public dialog: MatDialog, private router: Router,
+    private commentaireService: CommentaireService
+  ) {
     this.showComments = new Array(this.travels.length).fill(false);
 
 
@@ -72,7 +78,7 @@ export class TravelsComponent implements OnInit {
         this.travelService.getTravelsByOwner(JSON.parse(user)).subscribe(data => {
           //console.log("OWNER +++ >  ", data)
           this.travels = data;
-          this.AffichageAvecFilter = false ;
+          this.AffichageAvecFilter = false;
         })
       }
 
@@ -81,7 +87,7 @@ export class TravelsComponent implements OnInit {
         this.travelsinit = data;
 
         this.travels = data //.filter(travel => travel.type === TYPE[TYPE.Hébergement])
-        this.AffichageAvecFilter = true ;
+        this.AffichageAvecFilter = true;
       })
 
     }
@@ -97,13 +103,15 @@ export class TravelsComponent implements OnInit {
     this.page = event.pageIndex + 1; // Met à jour la page actuelle lorsque l'utilisateur change de page
   }
   getStarArray(note: number): number[] {
-    if(note > 0){
-    
-      return Array(Math.floor(note/5)).fill(0).map((_, index) => index);
-    }else{
-      return [] ; 
+    if (note > 0) {
+
+      const maxStars = 5;
+      const stars = Math.min(note, maxStars);
+      return Array(stars).fill(0).map((_, index) => index);
+    } else {
+      return [];
     }
-  
+
   }
   getStarColor(): string {
     return 'star-yellow';
@@ -242,14 +250,14 @@ export class TravelsComponent implements OnInit {
 
 
 
-  goToReservation(value : any ) {
+  goToReservation(value: any) {
     //console.log(UserConnexion())
 
     if (UserConnexion()) {
 
-      localStorage.setItem('travel' , JSON.stringify(value))
+      localStorage.setItem('travel', JSON.stringify(value))
       const dialogRef = this.dialog.open(DialogReservationComponent);
-     // this.router.navigate(['/reservation']);
+      // this.router.navigate(['/reservation']);
     } else {
       const dialogRef = this.dialog.open(LoginComponent);
       dialogRef.afterClosed().subscribe(result => {
@@ -265,14 +273,39 @@ export class TravelsComponent implements OnInit {
 
   }
   //deleteReservationById
-deleteTravel(id : any){
-  this.travelService.deleteReservationById(id).subscribe(data =>{
-    window.location.reload();
-  
-  })
-}
+  deleteTravel(id: any) {
+    this.travelService.deleteReservationById(id).subscribe(data => {
+      window.location.reload();
+
+    })
+  }
 
   toggleComments(index: number): void {
     this.showComments[index] = !this.showComments[index];
   }
+
+
+  addcommentaire(travel: Travel , commantaire : string , note : number) {
+
+
+    let storedUser = localStorage.getItem('user');
+      if (storedUser) {
+      let commentaire: Commentaire = {
+        id: 0,
+        travel: travel,
+        user : JSON.parse(storedUser) ,
+        commentaire : commantaire,
+        date: new Date(),
+        note: note
+      };
+      this.commentaireService.addCommentaire(commentaire).subscribe(data =>{
+        window.location.reload();
+
+      })
+    }
+    
+  }
+
+
+   
 }
